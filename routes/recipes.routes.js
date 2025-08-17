@@ -1,7 +1,7 @@
+// routes/recipes.routes.js
 const router = require('express').Router();
-const c = require('../controllers/recipes.controller');
+const c = require('../controllers/recipes.controller'); // <-- exact path & case
 
-// CRUD
 router.post('/', c.createRecipe);
 router.get('/', c.getAllRecipes);
 router.get('/:id', c.getRecipeById);

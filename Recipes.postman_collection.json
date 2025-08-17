@@ -1,0 +1,45 @@
+{
+  "info": {
+    "name": "Recipes App",
+    "_postman_id": "recipes-app-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Recipe",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Pasta\",\n  \"ingredients\": [\"noodles\", \"sauce\"],\n  \"instructions\": \"Boil and mix\"\n}"
+        },
+        "url": { "raw": "http://localhost:5000/recipes", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["recipes"] }
+      }
+    },
+    {
+      "name": "Get All Recipes",
+      "request": { "method": "GET", "url": { "raw": "http://localhost:5000/recipes", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["recipes"] } }
+    },
+    {
+      "name": "Get Recipe By Id",
+      "request": { "method": "GET", "url": { "raw": "http://localhost:5000/recipes/:id", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["recipes", ":id"] } }
+    },
+    {
+      "name": "Update Recipe",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Pasta Deluxe\",\n  \"ingredients\": [\"noodles\", \"sauce\", \"cheese\"],\n  \"instructions\": \"Boil, mix, bake\"\n}"
+        },
+        "url": { "raw": "http://localhost:5000/recipes/:id", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["recipes", ":id"] }
+      }
+    },
+    {
+      "name": "Delete Recipe",
+      "request": { "method": "DELETE", "url": { "raw": "http://localhost:5000/recipes/:id", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["recipes", ":id"] } }
+    }
+  ]
+}

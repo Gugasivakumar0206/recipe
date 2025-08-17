@@ -1,13 +1,10 @@
+// models/recipe.model.js
 const { Schema, model } = require('mongoose');
 
 const RecipeSchema = new Schema(
   {
     name: { type: String, required: true, trim: true },
-    ingredients: {
-      type: [String],
-      required: true,
-      validate: v => Array.isArray(v) && v.length > 0
-    },
+    ingredients: { type: [String], required: true, validate: v => v.length > 0 },
     instructions: { type: String, required: true, trim: true }
   },
   { timestamps: true }

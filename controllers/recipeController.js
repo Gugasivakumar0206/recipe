@@ -1,3 +1,4 @@
+// controllers/recipes.controller.js
 const Joi = require('joi');
 const Recipe = require('../models/recipe.model');
 
@@ -11,7 +12,6 @@ exports.createRecipe = async (req, res, next) => {
   try {
     const { error, value } = recipeSchema.validate(req.body);
     if (error) return res.status(400).json({ error: error.details[0].message });
-
     const recipe = await Recipe.create(value);
     res.status(201).json(recipe);
   } catch (e) { next(e); }
@@ -36,7 +36,6 @@ exports.updateRecipe = async (req, res, next) => {
   try {
     const { error, value } = recipeSchema.validate(req.body);
     if (error) return res.status(400).json({ error: error.details[0].message });
-
     const updated = await Recipe.findByIdAndUpdate(req.params.id, value, { new: true });
     if (!updated) return res.status(404).json({ error: 'Recipe not found' });
     res.json(updated);
